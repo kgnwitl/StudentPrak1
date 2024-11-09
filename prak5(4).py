@@ -11,10 +11,8 @@ with open("numsTask4.txt", 'w') as nums_file:
 with open("numsTask4.txt", 'r+') as nums_file:
     nums_arr = nums_file.readline()
     nums_arr = nums_arr.split()
-
-for i in range(len(nums_arr)):
-    nums_arr[i] = int(nums_arr[i])
-print(nums_arr)
+nums_arr = list(map(int, nums_arr))
+print("Массив:", nums_arr)
 
 max_num = nums_arr[0]
 for i in range(len(nums_arr)):

@@ -1,28 +1,28 @@
 import sys
 from random import randint
 
-def InputRandNumA():
+def input_rand_num_a():
     try:
         a = int(input("Введите число, от которого будут случайные числа: "))
     except ValueError:
         print("Некорректный ввод, попробуйте снова: ")
-        InputRandNumA()
+        input_rand_num_a()
     return a
 
-def InputRandNumB():
+def input_rand_num_b():
     try:
         b = int(input("Введите число, до которого будут случайные числа: "))
     except ValueError:
         print("Некорректный ввод, попробуйте снова: ")
-        InputRandNumB()
+        input_rand_num_b()
     return b
 
-a = InputRandNumA()
-b = InputRandNumB()
+a = input_rand_num_a()
+b = input_rand_num_b()
 
 NumArray = [randint(a, b) for _ in range(0, 10)]
 print(f"Полученный массив: {NumArray}")
-min = sys.maxsize
+min = NumArray[0]
 for i in range(len(NumArray)):
     if NumArray[i] <= min:
         min = NumArray[i]

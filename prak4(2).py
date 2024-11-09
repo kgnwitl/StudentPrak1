@@ -9,13 +9,11 @@ with open("numsTask2.txt", 'w') as nums_file:
 with open("numsTask2.txt", 'r+') as nums_file:
     nums_arr = nums_file.readline()
     nums_arr = nums_arr.split(";")
-    nums_arr.pop(len(nums_arr) - 1)
-for i in range(len(nums_arr)):
-    nums_arr[i] = float(nums_arr[i])
+    nums_arr.pop()
+nums_arr = list(map(float, nums_arr))
 print(f"Числа из файла: {nums_arr}")
 sum = 0
 for i in range(len(nums_arr)):
     if round(nums_arr[i], 5) > round(0, 5):
         sum += round(nums_arr[i], 5)
 print(f"Сумма: {round(sum, 5)}")
-

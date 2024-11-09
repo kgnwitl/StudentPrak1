@@ -6,4 +6,4 @@ for i in range(len(input_str)):
         num_word += 1
 print(f"Количество слов: {num_word}")
 input_str = "Start " + input_str + " End"
-print(input_str)
+print(f"Изменённая строка: {input_str}")

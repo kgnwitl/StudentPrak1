@@ -15,9 +15,14 @@ array_middle_num = []
 
 for _ in range(len(weather_temperature)):
     array_middle_num.append(middle_temp(weather_temperature[_]))
-print(f"Массив средних температур: {array_middle_num}")
+print(f"Массив средних температур: ", end = "")
+for _ in range(len(array_middle_num)):
+    print(round(array_middle_num[_], 3), end = " ")
+
 for i in range(len(array_middle_num)):
     for j in range(i, len(array_middle_num)):
         if array_middle_num[i] > array_middle_num[j]:
             array_middle_num[i], array_middle_num[j] = array_middle_num[j], array_middle_num[i]
-print(f"Массив средних температур, упорядоченны по возрастанию: {array_middle_num}")
+print(f"\nМассив средних температур, упорядоченны по возрастанию: ", end = "")
+for _ in range(len(array_middle_num)):
+    print(round(array_middle_num[_], 3), end = " ")

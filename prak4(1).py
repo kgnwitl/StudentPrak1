@@ -1,12 +1,12 @@
-num = int(input("Введите целом натуральное число: "))
+num = int(input("Введите число n: "))
 
 digit = 3
 mult_num = 1
 
-while mult_num <= num:
+while num > mult_num:
     mult_num *= digit
-    if mult_num > num:
+    if mult_num >= num:
         mult_num //= digit
         break
     digit += 3
-print(mult_num)
+print("Произведение натуральных чисел, кратных трём и не превышающим число n: ", mult_num)

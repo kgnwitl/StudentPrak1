@@ -9,15 +9,12 @@ with open("numsTask3.txt", 'w') as nums_file:
         nums_file.write(f"{randint(b, c)} ")
 
 with open("numsTask3.txt", 'r+') as nums_file:
-    nums_arr = nums_file.readline()
-    nums_arr = nums_arr.split()
-
-for i in range(len(nums_arr)):
-    nums_arr[i] = int(nums_arr[i])
-print(nums_arr)
-
+    nums_arr = nums_file.readline().split()
+nums_arr = list(map(int, nums_arr))
+print("Массив:", nums_arr)
 min_num = nums_arr[0]
 min_i = 0
+
 for i in range(len(nums_arr)):
     if nums_arr[i] < min_num:
         min_num = nums_arr[i]

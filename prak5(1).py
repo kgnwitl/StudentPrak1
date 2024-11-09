@@ -9,13 +9,8 @@ with open("numsTask1.txt", 'w') as nums_file:
         nums_file.write(f"{randint(b, c)} ")
 
 with open("numsTask1.txt", 'r+') as nums_file:
-    nums_arr = nums_file.readline()
-    nums_arr = nums_arr.split()
+    nums_arr = list(map(int, nums_file.readline().split()))
     print(nums_arr)
-
-for i in range(len(nums_arr)):
-    nums_arr[i] = int(nums_arr[i])
-print(nums_arr)
 
 min_num = nums_arr[0]
 min_i = 0
@@ -31,4 +26,7 @@ mult_num = 1
 while min_i != (len(nums_arr) - 1):
     min_i += 1
     mult_num *= nums_arr[min_i]
-print(f"Полученное произведение: {mult_num}")
+if mult_num == 1:
+    print("Число для перемножения одно, поэтому не вышло(")
+else:
+    print(f"Полученное произведение: {mult_num}")

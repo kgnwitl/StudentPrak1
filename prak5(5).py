@@ -9,11 +9,9 @@ with open("numsTask5.txt", 'w') as nums_file:
         nums_file.write(f"{randint(b, c)} ")
 
 with open("numsTask5.txt", 'r+') as nums_file:
-    nums_arr = nums_file.readline()
-    nums_arr = nums_arr.split()
+    nums_arr = nums_file.readline().split()
+nums_arr = list(map(int, nums_arr))
 
-for i in range(len(nums_arr)):
-    nums_arr[i] = int(nums_arr[i])
 print(nums_arr)
 
 min_num = nums_arr[0]
@@ -32,21 +30,22 @@ for i in range(len(nums_arr)):
 print(f"Минимальное число: {min_num}, Его индекс: {min_i}")
 print(f"Максимальное число: {max_num}, Его индекс: {max_i}")
 
-sum = 0
+sum_num = 0
 k = 0
 
 if min_i > max_i:
     max_i += 1
-    while max_i != (min_i):
-        sum += nums_arr[max_i]
+    while max_i != min_i:
+        sum_num += nums_arr[max_i]
         k += 1
         max_i += 1
 elif max_i > min_i:
     min_i += 1
-    while min_i != (max_i):
-        sum += nums_arr[min_i]
+    while min_i != max_i:
+        sum_num += nums_arr[min_i]
         k += 1
         min_i += 1
-print(sum)
-print(f"Среднее арифметическое: {sum / k}")
+if k == 0:
+    print("между числами нет чисел.")
+else: print(f"Среднее арифметическое: {round(sum_num / k, 4)}")
 

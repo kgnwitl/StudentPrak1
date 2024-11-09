@@ -13,9 +13,7 @@ with open("numsTask2.txt", 'r+') as nums_file:
     buff_str = nums_arr
     nums_arr = nums_arr.split(";")
     nums_arr.pop(len(nums_arr) - 1)
-
-for i in range(len(nums_arr)):
-    nums_arr[i] = float(nums_arr[i])
+nums_arr = list(map(float, nums_arr))
 print(f"Числа из файла: {nums_arr}")
 
 for i in range(len(nums_arr)):
