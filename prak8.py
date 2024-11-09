@@ -4,6 +4,19 @@ from datetime import datetime
 import requests
 import os
 
+def check_exist_city():
+    bruh = 0
+    while bruh == 0:
+        city = input("Введите название города по умолчанию: ")
+        try:
+            if city.isnumeric():
+                check_weather_city('lkjhhgf')
+            check_weather_city(city)
+            bruh = 1
+        except:
+            print("Некорректный ввод. Попробуйте снова")
+    return city
+
 def check_file(): #проверка файна на наличие и чтение файла в массив
     if os.path.exists("weather.json"):
         with open("weather.json", 'r') as taskjson:
@@ -31,7 +44,7 @@ def check_weather_city(city):
             del data[key]
     data.update(data_with_time)
     print("-------------------------------")
-    print(f"Cейчас температура в {city}: {data["main"]["temp"]}°C, ощущается как: {data["main"]["feels_like"]}°C")
+    print(f"Cейчас температура в {data["name"]}: {data["main"]["temp"]}°C, ощущается как: {data["main"]["feels_like"]}°C")
     print(f"На улице: {data["weather"][0]["description"]}")
     arr_weather.append(data)
     with open("weather.json", 'w') as weather_json:
@@ -51,7 +64,7 @@ def default_city(mode):
                 def_city = json_arr[_]["def_city"]
                 flag += 1
         if def_city == '':
-            def_city = input("Введите название города по умолчанию: ")
+            def_city = check_exist_city()
             print(f"Теперь, {def_city}, ваш город по умолчанию!")
         if flag == 0:
             def_dict = {
@@ -69,7 +82,7 @@ def default_city(mode):
             if "def_city" in json_arr[i]:
                 json_arr.pop(i)
                 break
-        def_city = input("Введите название города по умолчанию: ")
+        def_city = check_exist_city()
         print(f"Теперь, {def_city}, ваш город по умолчанию!")
         def_dict = {
             'def_city': f'{def_city}'
